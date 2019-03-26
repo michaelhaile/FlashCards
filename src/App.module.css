@@ -1,0 +1,12 @@
+.container {
+    max-width: 1020px;
+    margin: 25px auto;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.cardContainer {
+    display: flex;
+    justify-content: center;
+    flex-flow: wrap;
+    padding-top: 30px;
+}

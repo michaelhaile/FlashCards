@@ -1,0 +1,195 @@
+.cardContainer {
+    background-color: transparent;
+    width: 280px;
+    height: 280px;
+    perspective: 1000px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+}
+
+.card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    display: flex;
+    justify-content: center;
+}
+
+.flipCard {
+    transform: rotateY(-180deg);
+}
+
+.flipCard .cardFront,
+.flipCard .cardBack {
+    z-index: 1;
+}
+
+.cardFront, .cardBack {
+    position: absolute;
+    backface-visibility: hidden;
+    cursor: pointer;
+}
+
+.cardFront {
+    background-color: #fff;
+    color: #313537;
+    width: 250px;
+    height: 250px;
+    box-shadow: 0 0.4rem 1.2rem 0.2rem rgba(0,0,0,.05);
+    border: 1px solid #ddd;
+}
+
+.cardBack {
+    background-color: #fafafa;
+    color: #313537;
+    transform: rotateY(-180deg);
+    width: 280px;
+    height: 280px;
+    border: 1px solid #ddd;
+}
+
+.cardFront .inside {
+    width: 100%;
+    height: 100%;
+    border-top: 2px solid #747a7e;
+    opacity: .8;
+    transition: opacity .3s;
+    will-change: opacity;
+}
+
+.inside .content {
+    margin: 55px auto;
+    width: 228px;
+    height: 140px;
+    display: flex;
+    justify-content: center;
+}
+
+.cardBack .inside .content {
+    height: 170px
+}
+
+.content div {
+    width: 100%;
+    margin: auto 0;
+    flex: 0 1 auto;
+    font-size: 28px;
+    font-weight: 300;
+    line-height: 1.25;
+    text-align: center;
+    word-break: break-word;
+}
+
+.card svg {
+    fill: #707070;
+}
+
+.card button {
+    background-color: transparent;
+    border: none;
+    bottom: 0;
+    color: #707070;
+    cursor: pointer;
+    display: flex;
+    line-height: 1;
+    padding: 12px;
+    position: absolute;
+    right: 0;
+}
+
+.card .flipText,
+.cardFront .flipIcon,
+.cardBack .flipIcon{
+    display: inline-block;
+    height: 17px;
+    line-height: 17px;
+    opacity: .5;
+    transition: opacity .3s;
+    will-change: opacity;
+    font-style: italic;
+    margin-right: 6px;
+    transform: translateZ(0);
+}
+
+.cardFront:hover .flipText,
+.cardFront:hover .flipIcon,
+.cardBack:hover .flipText,
+.cardBack:hover .flipIcon{
+    opacity: .8;
+}
+
+.cardFront:hover .inside,
+.cardBack:hover .inside{
+    opacity: .5
+}
+
+.fullImage {
+    background-size: cover;
+    background-position: 50% 50%;
+    border: 1px solid #ddd;
+    opacity: 1;
+    transition: opacity .3s;
+    will-change: opacity;
+}
+
+.fullImage:hover {
+    opacity: .7
+}
+
+.paragraph {
+    margin: 25px 0;
+    padding: 0 25px;
+    overflow: hidden;
+    overflow-y: auto;
+    width: 230px;
+    height: 230px;
+    color: #707070;
+}
+
+.paragraph .content {
+    opacity: .8;
+    transition: opacity .3s;
+    will-change: opacity;
+    line-height: 1.75;
+    font-size: 18px;
+    text-align: left;
+}
+
+.cardBack:hover .paragraph .content{
+    opacity: .5
+}
+
+.fullImage svg {
+    fill: #fff;
+    display: inline-block;
+    height: 17px;
+    line-height: 17px;
+    opacity: .5;
+    transition: opacity .3s;
+    will-change: opacity;
+}
+
+.fullImage:hover svg {
+    opacity: .8;
+}
+
+.content::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0.8rem;
+    right: 1.8rem;
+    height: 6rem;
+    background: linear-gradient(hsla(0,0%,98%,0),#fafafa 75%,#fafafa) 0 0 repeat;
+    pointer-events: none;
+    opacity: 1;
+    transition: opacity .3s;
+    transform: translateZ(0);
+}
+
+.scrollerEnd .content::after {
+    opacity: 0;
+}
